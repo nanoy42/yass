@@ -1,12 +1,26 @@
 # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,latex,python
-# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,linux,latex,python
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,linux,latex,archlinuxpackages
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,python,linux,latex,archlinuxpackages
+
+### ArchLinuxPackages ###
+*.tar
+*.tar.*
+*.jar
+*.exe
+*.msi
+*.zip
+*.tgz
+*.log
+*.log.*
+*.sig
+
+pkg/
+src/
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
-*.log
 *.lot
 *.fls
 *.out
@@ -517,7 +531,7 @@ pyrightconfig.json
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,latex,python
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,linux,latex,archlinuxpackages
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 

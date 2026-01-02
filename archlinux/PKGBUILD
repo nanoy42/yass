@@ -1,0 +1,41 @@
+# Maintainer: Yoann Piétri <Yoann.Pietri@lip6.fr>
+
+_module="automatic-signature-sheet"
+_module_underscore="automatic_signature_sheet"
+_pkgname="python-$_module"
+pkgname="$_pkgname"
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="A tool to automate printing signature sheets."
+url="https://github.com/nanoy42/yass"
+license=('MIT')
+arch=('any')
+provides=('yass')
+
+depends=(
+  'python'
+)
+
+makedepends=(
+  'python-build'
+  'python-installer'
+  'python-setuptools-scm'
+  'python-wheel'
+)
+
+_pkgsrc="$_module_underscore-$pkgver"
+_pkgext="tar.gz"
+source=(https://files.pythonhosted.org/packages/source/${_module:0:1}/${_module}/${_module_underscore}-${pkgver}.tar.gz)
+sha256sums=('f865cce1691864f7d9421fa154e6c185468c751dbb4e3707e3a05b0f938441c1')
+
+build() {
+  cd "$_pkgsrc"
+  python -m build --wheel --no-isolation --skip-dependency-check
+}
+
+package() {
+  cd "$_pkgsrc"
+  python -m installer --destdir="$pkgdir" dist/*.whl
+  install -Dm644 LICENSE -t "$pkgdir/usr/share/licenses/$pkgname/"
+}
+

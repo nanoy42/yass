@@ -10,8 +10,16 @@ Hence, I decided to code a small tool that would take a list of students/people 
 
 Yass may be installed from the PyPi repository:
 
-```basb
+```bash
 pip install automatic-signature-sheet
+```
+
+For ArchLinux users, a PKGBUILD file is available in the archlinux folder. Hence the package can be installed with the following commands:
+
+```bash
+git clone https://github.com/nanoy42/yass
+cd yass/archlinux
+makepkg -si
 ```
 
 ## Examples
