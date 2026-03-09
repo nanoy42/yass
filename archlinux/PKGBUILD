@@ -4,7 +4,7 @@ _module="automatic-signature-sheet"
 _module_underscore="automatic_signature_sheet"
 _pkgname="python-$_module"
 pkgname="$_pkgname"
-pkgver=0.2.0
+pkgver=0.2.1
 pkgrel=1
 pkgdesc="A tool to automate printing signature sheets."
 url="https://github.com/nanoy42/yass"
@@ -26,7 +26,7 @@ makedepends=(
 _pkgsrc="$_module_underscore-$pkgver"
 _pkgext="tar.gz"
 source=(https://files.pythonhosted.org/packages/source/${_module:0:1}/${_module}/${_module_underscore}-${pkgver}.tar.gz)
-sha256sums=('277d51a3aa9220df5423085209e7b0882311a0661f14ea89cb9bb494c314eb43')
+sha256sums=('11f940c7187d0bd7c1dcda8528e998be0e8c53bfce19821889d418deb8082a9e')
 
 build() {
   cd "$_pkgsrc"

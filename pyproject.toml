@@ -1,6 +1,6 @@
 [project]
 name = "automatic-signature-sheet"
-version = "0.2.0"
+version = "0.2.1"
 description = "A tool to automate printing signature sheets."
 authors = [{ name = "Yoann Piétri", email = "Yoann.Pietri@lip6.fr" }]
 readme = "README.md"

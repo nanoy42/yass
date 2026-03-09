@@ -6,4 +6,4 @@
 YASS - Yoann's Automatic Signature Sheet.
 """
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
