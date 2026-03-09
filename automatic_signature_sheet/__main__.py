@@ -64,7 +64,14 @@ def _create_parser() -> argparse.ArgumentParser:
         "--person-id-column",
         type=int,
         default=2,
-        help="Column of the person id.. Use a negative value to ignore person id. Default: 2.",
+        help="Column of the person id. Use a negative value to ignore person id. Default: 2.",
+    )
+
+    parser.add_argument(
+        "--time-column",
+        type=int,
+        default=-1,
+        help="Column of the time. Use a negative value to ignore time. Default: -1.",
     )
 
     parser.add_argument(
@@ -104,12 +111,14 @@ def main():
         sys.exit(1)
 
     person_id_column = args.person_id_column if args.person_id_column >= 0 else None
+    time_column = args.time_column if args.time_column >= 0 else None
 
     reader = DefaultReader(
         args.filename,
         first_name_column=args.first_name_column,
         last_name_column=args.last_name_column,
         person_id_column=person_id_column,
+        time_column=time_column,
         ignore_lines=args.ignore_lines,
         sort=args.no_sort,
     )

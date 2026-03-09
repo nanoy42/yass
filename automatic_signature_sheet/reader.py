@@ -22,6 +22,7 @@ class Person:
     last_name: str
     first_name: str
     person_id: str | None
+    time: str | None
 
 
 # pylint: disable=too-few-public-methods
@@ -64,6 +65,7 @@ class CSVReader(BaseReader):
     first_name_column: int
     last_name_column: int
     person_id_column: int | None
+    time_column: int | None
     ignore_lines: int
 
     # pylint: disable=too-many-arguments, too-many-positional-arguments
@@ -73,6 +75,7 @@ class CSVReader(BaseReader):
         first_name_column: int = 0,
         last_name_column: int = 1,
         person_id_column: int | None = 2,
+        time_column: int | None = None,
         ignore_lines: int = 1,
         sort: bool = True,
     ):
@@ -88,6 +91,7 @@ class CSVReader(BaseReader):
         self.first_name_column = first_name_column
         self.last_name_column = last_name_column
         self.person_id_column = person_id_column
+        self.time_column = time_column
         self.ignore_lines = ignore_lines
         super().__init__(file_location, sort)
 
@@ -98,14 +102,17 @@ class CSVReader(BaseReader):
             if i >= self.ignore_lines:
                 last_name = line[self.last_name_column]
                 first_name = line[self.first_name_column]
-                if self.person_id_column is not None:
-                    person_id = line[self.person_id_column]
-                else:
-                    person_id = None
+                person_id = (
+                    line[self.person_id_column]
+                    if self.person_id_column is not None
+                    else None
+                )
+                time = line[self.time_column] if self.time_column is not None else None
                 student = Person(
                     last_name=last_name,
                     first_name=first_name,
                     person_id=person_id,
+                    time=time,
                 )
                 persons.append(student)
         return persons
